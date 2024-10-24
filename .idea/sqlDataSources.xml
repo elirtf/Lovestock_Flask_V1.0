@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="1a575e48-5c25-4729-ade0-da300b693b0e" name="flaskr.sqlite Mapping">
+      <data-sources db="f9e4b44d-1e26-4945-a534-246a917e3aed" ddl="b6717925-e435-4ef8-9d27-97b9095450cc" />
+    </mapping>
+  </component>
+</project>
