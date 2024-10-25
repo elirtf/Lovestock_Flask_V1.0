@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+
+{% block header %}
+  <h2>Search for a Stock</h2>
+{% endblock %}
+
+
+{% block content %}
+  <form action="/stock" method="POST">
+    <label for="symbol">Symbol</label>
+    <input type="text" name="symbol" id="symbol" placeholder="Enter stock symbol" required>
+    <label for="time_period">Select Time Period:</label>
+    <select name="time_period" id="time_period">
+      <option value="1d">1 Day</option>
+      <option value="5d">5 Days</option>
+      <option value="1mo">1 Month</option>
+      <option value="6mo">6 Months</option>
+      <option value="1y">1 Year</option>
+    </select>
+    <button type="submit">Search</button>
+  </form>
+{% endblock %}
+
+
+{% block content %}
+    <h2>Default Stocks</h2>
+    <!-- Sorting options -->
+    <div>
+        <label for="sort">Sort by:</label>
+        <select id="sort" name="sort_by" onchange="location = this.value;">
+            <option value="?sort_by=Name">Name</option>
+            <option value="?sort_by=Price">Price</option>
+            <option value="?sort_by=Change">Percentage Change</option>
+        </select>
+    </div>
+
+    <table>
+        <thead>
+            <tr><th>Stock</th><th>Price</th><th>1-Day Change</th></tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>${{ stock.price | round(2) }}</td>
+                    <td>{{ stock.change | round(2) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Your Watchlist</h2>
+    <table>
+        <thead>
+            <tr><th>Stock</th><th>Actions</th></tr>
+        </thead>
+        <tbody>
+            {% for stock in watchlist %}
+            <tr>
+                <td>{{ stock }}</td>
+                <td>
+                    <form action="{{ url_for('stock.remove_from_watchlist') }}" method="POST">
+                        <input type="hidden" name="symbol" value="{{ stock }}">
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

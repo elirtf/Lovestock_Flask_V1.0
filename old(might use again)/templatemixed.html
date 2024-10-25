@@ -1,0 +1,46 @@
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>{{ symbol }} Stock Info</title>#}
+{#</head>#}
+{#<div class="container">#}
+{#    <h1 class ="text-center">Stock Tracker</h1>#}
+{#    <img src="/static/{{ symbol }}_chart.png" alt="{{ symbol }} Stock Chart">#}
+{#    <form action="/stock" method="POST" class="form-inline">#}
+{#        <label for="time_period" class="mr-sm-2">Select Time Period:</label>#}
+{#        <select name="time_period" class="form-control mb-2 mr-sm-2" id="time_period">#}
+{#            <option value="1d">1 Day</option>#}
+{#            <option value="1w">1 Week</option>#}
+{#            <option value="1mo">1 Month</option>#}
+{#            <option value="6mo">6 Months</option>#}
+{#            <option value="1y">1 Year</option>#}
+{#        </select>#}
+{#        <button type="submit" class="btn btn-primary mb-2">Search</button>#}
+{#    </form>#}
+{#    <h2>Your Watchlist</h2>#}
+{#    <ul>#}
+{#        {% for stock in watchlist %}#}
+{#            <li>{{ stock.name }}</li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+{#</div>#}
+{#    <ul>#}
+{#        <li>Open: {{ stock['Open'] }}</li>#}
+{#        <li>High: {{ stock['High'] }}</li>#}
+{#        <li>Low: {{ stock['Low'] }}</li>#}
+{#        <li>Vol: {{ stock['Vol'] }}</li>#}
+{#        <li>Mkt Cap: {{ stock['Mkt Cap'] }}</li>#}
+{#        <li>P/E: {{ stock['P/E'] }}</li>#}
+{#        <li>EPS: {{ stock['EPS'] }}</li>#}
+{#        <li>Beta: {{ stock['Beta'] }}</li>#}
+{#        <li>Div Yield: {{ stock['Div Yield'] }}</li>#}
+{#        <li>52 Wk High: {{ stock['52 Wk High'] }}</li>#}
+{#        <li>52 Wk Low: {{ stock['52 Wk Low'] }}</li>#}
+{#    </ul>#}
+{##}
+{#    <a href="/Lovestock/static">Back</a>#}
+{#</div>#}
+{#</html>#}

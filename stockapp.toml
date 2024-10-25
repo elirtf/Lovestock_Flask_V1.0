@@ -1,0 +1,25 @@
+[project]
+name = "Lovestock"
+version = "0.0.1"
+authors = [
+    { name="Elijah Southern", email="southernelijahh@gmail.com" },
+]
+description = "Web application for tracking stock metrics."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "flask",
+]
+
+#[project.urls]
+#Homepage = "https://github.com/pypa/sampleproject"
+#Issues = "https://github.com/pypa/sampleproject/issues"
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"

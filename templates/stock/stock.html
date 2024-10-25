@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ stock_data.symbol }} Stock Details{% endblock %}
+
+{% block header %}
+  <h2>{{ symbol }} Stock Details ({{ time_period }})</h2>
+{% endblock %}
+
+{% block content %}
+    <h2>{{ stock_data.symbol }} Stock - {{ stock_data.price | round(2) }} USD</h2>
+    <p>1-Day Change: {{ stock_data.change | round(2) }} USD</p>
+
+    <!-- Plotly chart embedded here -->
+    <div id="chart">{{ chart_html | safe }}</div>
+
+    <form action="{{ url_for('stock.add_to_watchlist') }}" method="POST">
+        <input type="hidden" name="symbol" value="{{ stock_data.symbol }}">
+        <button type="submit">Add to Watchlist</button>
+    </form>
+
+{% endblock %}
+
+{% block content %}
+  <img src="/static/{{ symbol }}_chart.png" alt="{{ symbol }} Stock Chart">
+  <ul>
+    <li>Open: {{ stock['Open'] }}</li>
+    <li>High: {{ stock['High'] }}</li>
+    <li>Low: {{ stock['Low'] }}</li>
+    <li>Close: {{ stock['Close'] }}</li>
+    <li>Volume: {{ stock['Vol'] }}</li>
+    <li>Market Cap: {{ stock['Mkt Cap'] }}</li>
+    <li>P/E Ratio: {{ stock['P/E'] }}</li>
+    <li>EPS: {{ stock['EPS'] }}</li>
+    <li>Beta: {{ stock['Beta'] }}</li>
+    <li>Dividend Yield: {{ stock['Div Yield'] }}</li>
+    <li>52-Week High: {{ stock['52 Wk High'] }}</li>
+    <li>52-Week Low: {{ stock['52 Wk Low'] }}</li>
+  </ul>
+{% endblock %}
